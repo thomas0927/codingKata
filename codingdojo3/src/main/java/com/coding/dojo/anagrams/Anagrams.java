@@ -1,6 +1,5 @@
 package com.coding.dojo.anagrams;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
@@ -17,6 +16,18 @@ public class Anagrams {
     guessWords(words);
   }
 
+  public Anagrams(String fileName) throws IOException {
+    guessAnagramFromFile(fileName);
+  }
+
+  public String longestWord() {
+    return this.anagrams.stream().max(Comparator.comparing(Anagram::length)).get().toString();
+  }
+
+  public String mostWords() {
+    return this.anagrams.stream().max(Comparator.comparing(Anagram::count)).get().toString();
+  }
+
   private void guessWords(List<Word> words) {
     this.anagrams =
         words.stream()
@@ -27,24 +38,21 @@ public class Anagrams {
             .collect(Collectors.toList());
   }
 
-  public Anagrams() {}
-
-  public String longestWord() {
-    return this.anagrams.stream().max(Comparator.comparing(Anagram::length)).get().toString();
-  }
-
-  public String mostWords() {
-    return this.anagrams.stream().max(Comparator.comparing(Anagram::count)).get().toString();
-  }
-
-  public void guessAnagramFromFile(String fileName) throws IOException {
+  private void guessAnagramFromFile(String fileName) throws IOException {
     List<Word> words = getWordsFromFile(fileName);
     guessWords(words);
   }
 
   private List<Word> getWordsFromFile(String fileName) throws IOException {
-    Path paths = Paths.get(URI.create(this.getClass().getResource(fileName).toString()));
-    BufferedReader bufferedReader = Files.newBufferedReader(paths);
-    return bufferedReader.lines().map(Word::new).collect(Collectors.toList());
+    Path paths = getPath(fileName);
+    return getWords(paths);
+  }
+
+  private Path getPath(String fileName) {
+    return Paths.get(URI.create(this.getClass().getResource(fileName).toString()));
+  }
+
+  private List<Word> getWords(Path paths) throws IOException {
+    return Files.newBufferedReader(paths).lines().map(Word::new).collect(Collectors.toList());
   }
 }
