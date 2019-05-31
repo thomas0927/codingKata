@@ -1,17 +1,13 @@
 package com.coding.dojo.anagrams;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class WordTest {
-  @Test(dataProvider = "word_list")
-  public void should_same_hashcode_with_same_character_in_diff_word(Word a, Word b) {
-    Assert.assertEquals(a.hashCode(), b.hashCode());
-  }
-
-  @DataProvider
-  public Object[][] word_list() {
-    return new Object[][] {{new Word("ab"), new Word("ba")}};
+  @Test
+  public void should_return_same_hashcode_from_same_character_word() {
+    Word w1 = new Word("ab");
+    Word w2 = new Word("ba");
+    Assert.assertTrue(w1.hashCode() == w2.hashCode());
   }
 }
