@@ -39,13 +39,11 @@ public class Anagrams {
   }
 
   private void guessAnagramFromFile(String fileName) throws IOException {
-    List<Word> words = getWordsFromFile(fileName);
-    guessWords(words);
+    guessWords(getWordsFromFile(fileName));
   }
 
   private List<Word> getWordsFromFile(String fileName) throws IOException {
-    Path paths = getPath(fileName);
-    return getWords(paths);
+    return getWords(getPath(fileName));
   }
 
   private Path getPath(String fileName) {
