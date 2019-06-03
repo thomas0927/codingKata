@@ -6,10 +6,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class NumberOCR {
-  private static Map<String, INumber> convertes = new HashMap<>();
+  private static Map<String, INumber> converters = new HashMap<>();
 
   static {
-    convertes.put(" _ | ||_|   ", new Zero());
+    converters.put(" _ | ||_|   ", new Zero());
+    converters.put("     |  |   ", new One());
   }
 
   private final List<INumber> numberList;
@@ -18,7 +19,7 @@ public class NumberOCR {
     this.numberList =
         ocrInfo.stream()
             .map(s -> String.join("", s))
-            .map(l -> convertes.get(l))
+            .map(l -> converters.get(l))
             .collect(Collectors.toList());
   }
 
