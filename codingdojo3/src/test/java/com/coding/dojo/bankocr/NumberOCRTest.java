@@ -55,9 +55,8 @@ public class NumberOCRTest {
     Assert.assertEquals(NumberOCR.ocrNumber("bankocr.txt").toString(), "000000000");
   }
 
-  @Test
-  public void should_split_line_to_array_of_string() {
-    NumberOCR ocr = new NumberOCR();
-    Assert.assertEquals(NumberOCR.split(" _     _ ", 3).size(), 3);
-  }
+  //  @Test
+  //  public void should_split_line_to_array_of_string() {
+  //    Assert.assertEquals(NumberOCR.split(" _     _ ", 3).size(), 3);
+  //  }
 }
