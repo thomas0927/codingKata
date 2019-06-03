@@ -52,7 +52,7 @@ public class NumberOCRTest {
 
   @Test
   public void should_ocr_number_from_one_line_of_file() throws IOException {
-    Assert.assertEquals(NumberOCR.ocrNumber("bankocr.txt").toString(), "000000000");
+    Assert.assertEquals(NumberOCR.ocrNumber("/bankocr.txt").toString(), "000000000");
   }
 
   //  @Test
