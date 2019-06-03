@@ -11,6 +11,14 @@ public class NumberOCR {
   static {
     converters.put(" _ | ||_|   ", new Zero());
     converters.put("     |  |   ", new One());
+    converters.put(" _  _||_    ", new Two());
+    converters.put(" _  _| _|   ", new Three());
+    converters.put("   |_|  |   ", new Four());
+    converters.put(" _ |   _|   ", new Five());
+    converters.put(" _ |_ |_|   ", new Six());
+    converters.put(" _   |  |   ", new Seven());
+    converters.put(" _ |_||_|   ", new Eight());
+    converters.put("   |_| _|   ", new Nine());
   }
 
   private final List<INumber> numberList;
