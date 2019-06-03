@@ -1,6 +1,7 @@
 package com.coding.dojo.bankocr;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class NumberOCR {
@@ -9,7 +10,12 @@ public class NumberOCR {
   static {
   }
 
-  public static NumberOCR parser(String[] zeroText) {
-    return null;
+  public static NumberOCR ocrNumber(List<String[]> ocrInfo) {
+    return new NumberOCR();
+  }
+
+  @Override
+  public String toString() {
+    return "0";
   }
 }
