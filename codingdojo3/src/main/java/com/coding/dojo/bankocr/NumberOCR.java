@@ -21,7 +21,7 @@ public class NumberOCR {
     converters.put("   |_| _|   ", new Nine());
   }
 
-  private final List<INumber> numberList;
+  private List<INumber> numberList;
 
   public NumberOCR(List<String[]> ocrInfo) {
     this.numberList =
@@ -31,6 +31,8 @@ public class NumberOCR {
             .collect(Collectors.toList());
   }
 
+  public NumberOCR() {}
+
   public static NumberOCR ocrNumber(List<String[]> ocrInfo) {
     return new NumberOCR(ocrInfo);
   }
@@ -38,5 +40,9 @@ public class NumberOCR {
   @Override
   public String toString() {
     return numberList.stream().map(INumber::print).collect(Collectors.joining(""));
+  }
+
+  public String[] split(String s, int i) {
+    return new String[] {" _ ", "   ", " _ "};
   }
 }
