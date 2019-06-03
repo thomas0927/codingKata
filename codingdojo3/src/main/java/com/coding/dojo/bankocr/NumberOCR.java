@@ -15,16 +15,16 @@ public class NumberOCR {
   private static Map<String, INumber> converters = new HashMap<>();
 
   static {
-    converters.put(" _ | ||_|   ", new Zero());
-    converters.put("     |  |   ", new One());
-    converters.put(" _  _||_    ", new Two());
-    converters.put(" _  _| _|   ", new Three());
-    converters.put("   |_|  |   ", new Four());
-    converters.put(" _ |   _|   ", new Five());
-    converters.put(" _ |_ |_|   ", new Six());
-    converters.put(" _   |  |   ", new Seven());
-    converters.put(" _ |_||_|   ", new Eight());
-    converters.put("   |_| _|   ", new Nine());
+    converters.put(" _ | ||_|", new Zero());
+    converters.put("     |  |", new One());
+    converters.put(" _  _||_ ", new Two());
+    converters.put(" _  _| _|", new Three());
+    converters.put("   |_|  |", new Four());
+    converters.put(" _ |   _|", new Five());
+    converters.put(" _ |_ |_|", new Six());
+    converters.put(" _   |  |", new Seven());
+    converters.put(" _ |_||_|", new Eight());
+    converters.put("   |_| _| ", new Nine());
   }
 
   private List<INumber> numberList;
@@ -51,9 +51,8 @@ public class NumberOCR {
       List<String> line0 = split(lines.get(i), 3);
       List<String> line1 = split(lines.get(i + 1), 3);
       List<String> line2 = split(lines.get(i + 2), 3);
-      List<String> line3 = split(lines.get(i + 3), 3);
       for (int j = 0; j < line0.size(); j++) {
-        ocrInfo.add(new String[] {line0.get(j), line1.get(j), line2.get(j), line3.get(j)});
+        ocrInfo.add(new String[] {line0.get(j), line1.get(j), line2.get(j)});
       }
     }
     return new NumberOCR(ocrInfo);
