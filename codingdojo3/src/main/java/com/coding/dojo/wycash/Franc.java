@@ -1,6 +1,6 @@
 package com.coding.dojo.wycash;
 
-public class Franc extends Money {
+public class Franc {
   private int amount;
 
   public Franc(int amount) {
