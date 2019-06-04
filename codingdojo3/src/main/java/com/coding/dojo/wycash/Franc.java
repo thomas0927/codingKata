@@ -2,8 +2,11 @@ package com.coding.dojo.wycash;
 
 public class Franc extends Money {
 
+  public String currency;
+
   Franc(int amount) {
     this.amount = amount;
+    this.currency = "CHF";
   }
 
   @Override
@@ -13,6 +16,6 @@ public class Franc extends Money {
 
   @Override
   public String currency() {
-    return "CHF";
+    return currency;
   }
 }

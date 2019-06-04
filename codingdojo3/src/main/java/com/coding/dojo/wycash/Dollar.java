@@ -2,8 +2,11 @@ package com.coding.dojo.wycash;
 
 public class Dollar extends Money {
 
+  public String currency;
+
   public Dollar(int amount) {
     this.amount = amount;
+    this.currency = "USD";
   }
 
   @Override
@@ -13,6 +16,6 @@ public class Dollar extends Money {
 
   @Override
   public String currency() {
-    return "USD";
+    return this.currency;
   }
 }
