@@ -1,6 +1,6 @@
 package com.coding.dojo.wycash;
 
-public class Money {
+public class Money implements Expression {
   int amount;
   String currency;
 
@@ -36,7 +36,7 @@ public class Money {
     return amount + " " + currency;
   }
 
-  public Money plus(Money addend) {
+  public Expression plus(Money addend) {
     return new Money(amount + addend.amount, currency);
   }
 }
