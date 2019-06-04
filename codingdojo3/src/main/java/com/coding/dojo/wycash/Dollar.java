@@ -2,20 +2,12 @@ package com.coding.dojo.wycash;
 
 public class Dollar extends Money {
 
-  public String currency;
-
-  public Dollar(int amount) {
-    this.amount = amount;
-    this.currency = "USD";
+  Dollar(int amount, String currency) {
+    super(amount, currency);
   }
 
   @Override
   public Money times(int multiplier) {
-    return new Dollar(this.amount * multiplier);
-  }
-
-  @Override
-  public String currency() {
-    return this.currency;
+    return Money.dollar(this.amount * multiplier);
   }
 }

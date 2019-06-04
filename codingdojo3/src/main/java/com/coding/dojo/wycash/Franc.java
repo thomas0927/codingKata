@@ -2,20 +2,12 @@ package com.coding.dojo.wycash;
 
 public class Franc extends Money {
 
-  public String currency;
-
-  Franc(int amount) {
-    this.amount = amount;
-    this.currency = "CHF";
+  Franc(int amount, String currency) {
+    super(amount, currency);
   }
 
   @Override
   public Money times(int multiplier) {
-    return new Franc(amount * multiplier);
-  }
-
-  @Override
-  public String currency() {
-    return currency;
+    return Money.franc(amount * multiplier);
   }
 }

@@ -1,14 +1,20 @@
 package com.coding.dojo.wycash;
 
 public abstract class Money {
-  protected int amount;
+  int amount;
+  private String currency;
 
-  public static Money dollar(int amount) {
-    return new Dollar(amount);
+  Money(int amount, String currency) {
+    this.amount = amount;
+    this.currency = currency;
   }
 
-  public static Money franc(int amount) {
-    return new Franc(amount);
+  static Money dollar(int amount) {
+    return new Dollar(amount, "USD");
+  }
+
+  static Money franc(int amount) {
+    return new Franc(amount, "CHF");
   }
 
   @Override
@@ -19,5 +25,7 @@ public abstract class Money {
 
   public abstract Money times(int multiplier);
 
-  public abstract String currency();
+  String currency() {
+    return currency;
+  }
 }
