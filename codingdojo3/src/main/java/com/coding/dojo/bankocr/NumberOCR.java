@@ -37,8 +37,6 @@ public class NumberOCR {
             .collect(Collectors.toList());
   }
 
-  public NumberOCR() {}
-
   public static NumberOCR ocrNumber(List<String[]> ocrInfo) {
     return new NumberOCR(ocrInfo);
   }
