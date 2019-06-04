@@ -1,8 +1,8 @@
 package com.coding.dojo.wycash;
 
-public abstract class Money {
+public class Money {
   int amount;
-  private String currency;
+  String currency;
 
   Money(int amount, String currency) {
     this.amount = amount;
@@ -20,12 +20,19 @@ public abstract class Money {
   @Override
   public boolean equals(Object obj) {
     Money money = (Money) obj;
-    return amount == money.amount && getClass().equals(money.getClass());
+    return amount == money.amount && currency().equals(money.currency());
   }
 
-  public abstract Money times(int multiplier);
+  public Money times(int multiplier) {
+    return null;
+  }
 
   String currency() {
     return currency;
+  }
+
+  @Override
+  public String toString() {
+    return amount + " " + currency;
   }
 }
