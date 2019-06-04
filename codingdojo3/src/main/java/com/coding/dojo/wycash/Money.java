@@ -1,9 +1,9 @@
 package com.coding.dojo.wycash;
 
-public class Money {
+public abstract class Money {
   protected int amount;
 
-  public static Dollar dollar(int amount) {
+  public static Money dollar(int amount) {
     return new Dollar(amount);
   }
 
@@ -12,4 +12,6 @@ public class Money {
     Money money = (Money) obj;
     return amount == money.amount && getClass().equals(money.getClass());
   }
+
+  public abstract Money times(int multiplier);
 }
