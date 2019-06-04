@@ -70,6 +70,11 @@ public class MoneyTest {
   }
 
   @Test
+  public void testArrayEquals() {
+    assertNotEquals(new Object[] {"abc"}, new Object[] {"abc"});
+  }
+
+  @Test
   public void testCurrency() {
     assertEquals("USD", Money.dollar(1).currency());
   }
