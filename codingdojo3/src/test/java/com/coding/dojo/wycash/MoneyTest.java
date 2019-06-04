@@ -55,6 +55,13 @@ public class MoneyTest {
   }
 
   @Test
+  public void testReduceMoney() {
+    Bank bank = new Bank();
+    Money result = bank.reduce(Money.dollar(1), "USD");
+    assertEquals(Money.dollar(1), result);
+  }
+
+  @Test
   public void testCurrency() {
     assertEquals("USD", Money.dollar(1).currency());
   }
