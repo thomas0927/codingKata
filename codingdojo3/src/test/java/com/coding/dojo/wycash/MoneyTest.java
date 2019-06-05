@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class MoneyTest {
   @Test
@@ -25,7 +24,7 @@ public class MoneyTest {
 
   @Test
   public void testDifferentClassEquality() {
-    assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
+    assertEquals(new Money(10, "CHF"), new Franc(10, "CHF"));
   }
 
   @Test
