@@ -9,13 +9,13 @@ import java.util.stream.Collectors;
 
 public class Args {
   private final Schemas schemas;
-  private final Argument defaultArg;
-  private Map<Character, Argument> argsMap;
+  private final Argument defaultArgument;
+  private Map<Character, Argument> argumentsMap;
 
   public Args(String args, String schemasAstext) {
     this.schemas = new Schemas(schemasAstext);
-    this.defaultArg = new Argument('-', null);
-    this.argsMap =
+    this.defaultArgument = new Argument('-', null);
+    this.argumentsMap =
         Arrays.stream(args.substring(1).split("-"))
             .collect(
                 Collectors.toMap(
@@ -24,7 +24,10 @@ public class Args {
   }
 
   public Object getValue(Character flag) {
-    return this.schemas.getArgsValue(
-        flag, Optional.ofNullable(argsMap.get(flag)).orElse(this.defaultArg).getValue());
+    return this.schemas.getArgsValue(flag, getDefaultableValue(flag));
+  }
+
+  private String getDefaultableValue(Character flag) {
+    return Optional.ofNullable(argumentsMap.get(flag)).orElse(this.defaultArgument).getValue();
   }
 }
